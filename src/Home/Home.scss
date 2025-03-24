@@ -1,0 +1,86 @@
+@use '../styles/variables.scss' as *;
+
+ 
+[data-theme="light"] {
+  background-color:$very-light-gray-background;
+  color: $very-dark-blue-text;
+
+  .header-section {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  button {
+    color: $very-dark-blue-text;
+   }
+}
+
+
+[data-theme="dark"] {
+  background-color:$very-dark-blue-background;
+  color: $white-dark-mode-text; 
+
+  .header-section {
+    background-color: $dark-blue-elements;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+  }
+  button {
+    color:  $white-dark-mode-text;
+    background-color: $very-dark-blue-background;
+  }
+
+}
+
+.header-section {
+  align-items: center;
+  display: flex;
+  font-family: $font-stack;
+  justify-content: space-between;
+  padding: 1rem 4rem;
+   
+}
+
+main {
+  padding: 2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+
+ 
+  .filter-container {
+    display: flex;
+    justify-content: space-between;
+
+  }
+
+  .countries-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Make each country at least 250px wide */
+  gap: 50px;  
+  row-gap: 70px;
+}
+}
+
+#loader-container { 
+  display: flex;
+  flex-direction: column;  /* Stack the elements vertically */
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+ 
+@media (max-width: 600px) {
+  .header-section {
+    padding: 1rem;;
+    h2 {
+      font-size: 1.6rem ;
+    }
+   }
+}
+
+@media (max-width: 450px) {
+  .header-section{
+    
+    h2{ 
+      font-size: 1.2rem;
+    }
+  }
+}

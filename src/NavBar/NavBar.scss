@@ -1,0 +1,21 @@
+@use '../styles/variables.scss' as *;
+
+$button-font-size: 1rem;
+
+
+#navbar {
+    height: fit-content;
+    display: flex;
+    align-items: center;
+   
+     button {
+        align-items: center;
+        background-color: transparent;
+        border: none;
+        display: flex; 
+        font-size: $button-font-size ;
+        font-family: $font-stack;
+        gap: 8px;
+        padding: 1rem;
+    }
+}

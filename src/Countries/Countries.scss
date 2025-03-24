@@ -1,0 +1,30 @@
+@use '../styles/variables' as *;
+
+.country-container {
+    border-radius: $country-border-radius;
+    display: flex;
+    flex-direction: column; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+
+    img {
+        width: 100%; 
+        height: 50%;
+        object-fit: fill;
+        border-top-left-radius: $country-border-radius;
+        border-top-right-radius: $country-border-radius;
+    }
+
+    .country-info{ 
+        padding: 0.5rem 2rem;
+        height: fit-content;
+      
+        p{
+            margin-bottom: 0px;
+            font-size: 14px;
+            &:last-child {
+                margin-bottom: 14px;
+            }
+        }
+    }
+}
+ 
