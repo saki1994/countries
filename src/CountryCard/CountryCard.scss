@@ -1,6 +1,6 @@
 @use '../styles/variables' as *;
 
-.country-container {
+.country-card-container {
     border-radius: $country-border-radius;
     display: flex;
     flex-direction: column; 

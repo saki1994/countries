@@ -1,8 +1,14 @@
-import "./Countries.scss"
+import "./CountryCard.scss"
+import { useNavigate } from "react-router";
 
-const Countries = ({country}) => {
+
+const CountryCard = ({country, codeToName}) => {
+    let navigate = useNavigate();
+
     return (
-        <div className="country-container">
+        <div className="country-card-container" onClick={() => navigate(`/${country.name}`, {
+            state: { country, codeToName }
+        })}>
             <img src={country.flags.png} alt="flag"   />
             <div className="country-info" >  
                 <h3>{country.name}</h3>
@@ -14,4 +20,4 @@ const Countries = ({country}) => {
     )
 }
 
-export default Countries
+export default CountryCard

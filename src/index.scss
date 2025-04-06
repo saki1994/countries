@@ -4,9 +4,13 @@
 
 body {
   margin: 0;
-  font-family: $font-stack;
+  
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  * {
+    font-family: $font-stack;
+  }
 }
 
 code {
