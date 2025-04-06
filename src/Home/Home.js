@@ -1,4 +1,3 @@
-import NavBar from "../NavBar/NavBar";
 import Loader from "../Loader/Loader";
 import "./Home.scss";
 import { useEffect, useState } from "react";

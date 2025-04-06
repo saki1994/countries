@@ -1,26 +1,18 @@
-import { FadeLoader } from 'react-spinners';  
+import { FadeLoader } from "react-spinners";
 
-const override  = {
-     display: "inline-block",
-}
-
-function Loader({loading, theme}) {
-
-   
-  
+function Loader({ loading, theme }) {
   return (
-    <div id='loader-container'>
-      <FadeLoader    
-             color={theme === "light" ? "black" : "white"} 
-             loading={loading} 
-             size={200}
-             aria-label="Loading Spinner"
-             data-testid="loader"
-          />
-        <h3>Fetching Countries...</h3>
-
+    <div id="loader-container">
+      <FadeLoader
+        color={theme === "light" ? "black" : "white"}
+        loading={loading}
+        size={200}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />
+      <h3>Fetching Countries...</h3>
     </div>
   );
 }
 
-export default Loader
+export default Loader;
