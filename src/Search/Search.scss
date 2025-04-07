@@ -4,6 +4,10 @@
   .search-container {
     background-color: $dark-blue-elements;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+
+    input {
+      color: $white-dark-mode-text;
+    }
   }
 }
 
@@ -19,7 +23,6 @@
   input {
     background-color: inherit;
     border: none;
-    color: $white-dark-mode-text;
     flex: 1;
     padding-left: 1em;
 
