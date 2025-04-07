@@ -15,12 +15,10 @@ function Home({ theme }) {
 
   useEffect(() => {
     const fetchCountries = async () => {
-      try {
-        const response = await fetch("data.json");
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const data = await response.json();
+      const storedData = sessionStorage.getItem("countriesData");
+
+      if (storedData) {
+        const data = JSON.parse(storedData);
         setCountries(data);
         setFilteredCountries(data);
         const codeMapping = {};
@@ -31,20 +29,35 @@ function Home({ theme }) {
         setRegionList(
           Array.from(new Set(data.map((country) => country.region)))
         );
-        setLoading(false); // Set loading to false once data is fetched
+        setLoading(false);
+        return;
+      }
+
+      try {
+        const response = await fetch("data.json");
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+        sessionStorage.setItem("countriesData", JSON.stringify(data)); // Save to sessionStorage
+        setCountries(data);
+        setFilteredCountries(data);
+        const codeMapping = {};
+        data.forEach((country) => {
+          codeMapping[country.alpha3Code] = country.name;
+        });
+        setCodeToName(codeMapping);
+        setRegionList(
+          Array.from(new Set(data.map((country) => country.region)))
+        );
+        setLoading(false);
       } catch (error) {
         setError("Failed to fetch countries");
-        setLoading(false); // Set loading to false in case of error
+        setLoading(false);
       }
     };
 
-    // Delay fetchCountries by 3 seconds
-    const timeoutId = setTimeout(() => {
-      fetchCountries();
-    }, 1000);
-
-    // Cleanup the timeout if the component unmounts before 3 seconds
-    return () => clearTimeout(timeoutId);
+    fetchCountries();
   }, []);
 
   const searchFunction = (val, type) => {
